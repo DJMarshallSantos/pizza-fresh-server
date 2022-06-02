@@ -1,4 +1,6 @@
 export class Table {
-  id: string;
+  id?: string;
   number: number;
+  createdAt?: Date;
+  updatedAt?: Date;
 }
