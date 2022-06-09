@@ -12,10 +12,12 @@ async function bootstrap() {
     .setDescription('Aplicação para gestão de mesas para pizzaria')
     .setVersion('1.0.0')
     .addTag('status')
+    .addTag('auth')
     .addTag('table')
     .addTag('product')
     .addTag('user')
     .addTag('order')
+    .addBearerAuth()
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
