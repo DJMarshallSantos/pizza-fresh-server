@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { HttpException, Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { handleError } from 'src/utils/handle-error.util';
 import { CreateProductDto } from './dto/create-product.dto';
@@ -23,7 +23,7 @@ export class ProductService {
     return record;
   }
 
-  async findOne(id: string): Promise<Product> {
+  findOne(id: string) {
     return this.findById(id);
   }
 
@@ -50,5 +50,6 @@ export class ProductService {
     await this.findById(id);
 
     await this.prisma.product.delete({ where: { id } });
+    throw new HttpException('', 204);
   }
 }

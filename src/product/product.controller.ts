@@ -50,7 +50,7 @@ export class ProductController {
   @Delete(':id')
   @HttpCode(HttpStatus.NO_CONTENT)
   @ApiOperation({ summary: 'Remover um produto pelo ID' })
-  remove(@Param('id') id: string) {
+  delete(@Param('id') id: string) {
     return this.productService.delete(id);
   }
 }

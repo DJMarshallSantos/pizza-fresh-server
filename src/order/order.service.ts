@@ -44,6 +44,7 @@ export class OrderService {
           user: {
             select: {
               name: true,
+              image: true,
             },
           },
           products: {
@@ -52,6 +53,7 @@ export class OrderService {
               description: true,
               product: {
                 select: {
+                  price: true,
                   name: true,
                 },
               },
